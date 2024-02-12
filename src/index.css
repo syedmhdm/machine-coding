@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  body {
+    @apply text-slate-100 tracking-wide text-lg
+  }
+}
+
+/* tracking-wide font-normal bg-stone-950 */
