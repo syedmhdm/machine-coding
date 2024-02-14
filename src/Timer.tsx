@@ -49,7 +49,7 @@ export default function Timer({ id, allotedSeconds }) {
 
   return (
     <div className='absolute flex gap-10 bg-red-500o bottom-10'>
-      <p className='text-2xl'>
+      <p className='text-2xl w-28'>
         {displayMinutes}:{displaySeconds}
       </p>
       <button onClick={handlePausePlay}>

@@ -19,6 +19,7 @@ export default function One() {
       <pre className='overflow-y-scroll text-sm whitespace-break-spaces max-h-96'>
         {code}
       </pre>
+      "one"
     </code>
   );
 }

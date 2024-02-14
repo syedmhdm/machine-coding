@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+// data set
 const countries = [
   { name: "India", code: "In", cities: ["mumbai", "chennai", "kolkata"] },
   { name: "Pakistan", code: "Pak", cities: ["karachi", "lahore"] },
