@@ -28,11 +28,8 @@ export default function Timer({ id, allotedSeconds }) {
 
   useEffect(
     function () {
-      console.log("1");
       if (!isRunning) return;
-      console.log("2");
       if (minutes === 0 && seconds === 0) return;
-      console.log("3");
       const interval = setInterval(function () {
         setSeconds((prevSecs) => (prevSecs === 0 ? 59 : prevSecs - 1));
         if (seconds === 0) setMinutes((prevMins) => prevMins - 1);
