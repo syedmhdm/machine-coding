@@ -1,22 +1,14 @@
-import { useEffect, useState } from "react";
 import CopyButton from "./CopyButton";
 
-export default function FetchCode({ completedOn, id }) {
-  const [code, setCode] = useState("");
-
-  useEffect(
-    function () {
-      async function getCode() {
-        const resp = await fetch(
-          `https://api.github.com/repos/syedmhdm/machine-coding/contents/src/appdata/${id}/Solution.tsx`
-        );
-        const data = await resp.json();
-        setCode(atob(data.content));
-      }
-      getCode();
-    },
-    [id]
-  );
+export default function FetchCode({
+  id,
+  code,
+  completedOn,
+}: {
+  id: number;
+  code: string;
+  completedOn: string;
+}) {
   return (
     <div>
       <code className='relative block p-5 m-10 rounded-lg bg-slate-950 border-slate-400 border-[1px] w-[80%]'>
@@ -25,7 +17,7 @@ export default function FetchCode({ completedOn, id }) {
         </pre>
         <CopyButton data={code} />
       </code>
-      {completedOn !== null ? (
+      {completedOn !== "" ? (
         <div className='absolute inset-x-0 flex justify-between gap-1 text-xs right-1 top-1 text-slate-400'>
           <a
             href={`https://github.com/syedmhdm/machine-coding/blob/main/src/appdata/${id}/Solution.tsx`}

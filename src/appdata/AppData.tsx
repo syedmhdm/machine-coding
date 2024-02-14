@@ -23,7 +23,7 @@ export const appData = [
     dataSet: null,
     allotedSeconds: 3600,
     answer: <SolutionOne />,
-    completedOn: null,
+    completedOn: "",
   },
   {
     id: 2,
@@ -32,7 +32,7 @@ export const appData = [
     dataSet: null,
     allotedSeconds: 3600,
     answer: <SolutionTwo />,
-    completedOn: null,
+    completedOn: "",
   },
   {
     id: 3,
@@ -41,7 +41,7 @@ export const appData = [
     dataSet: null,
     allotedSeconds: 1800,
     answer: <SolutionThree />,
-    completedOn: null,
+    completedOn: "",
   },
   {
     id: 4,
@@ -55,7 +55,7 @@ export const appData = [
       { id: 4, ques: "quetion 4", options: ["q4 opt1", "q4 opt2", "q4 opt3"] },
     ],
     answer: <SolutionFour />,
-    completedOn: null,
+    completedOn: "",
   },
   {
     id: 5,
@@ -64,7 +64,7 @@ export const appData = [
     allotedSeconds: 3600,
     dataSet: null,
     answer: <SolutionFive />,
-    completedOn: null,
+    completedOn: "",
   },
   {
     id: 6,
@@ -73,7 +73,7 @@ export const appData = [
     allotedSeconds: 7200,
     dataSet: null,
     answer: <SolutionSix />,
-    completedOn: null,
+    completedOn: "",
   },
   {
     id: 7,
@@ -99,7 +99,7 @@ export const appData = [
     allotedSeconds: 9000,
     dataSet: null,
     answer: <SolutionEight />,
-    completedOn: null,
+    completedOn: "",
   },
   {
     id: 9,
@@ -107,6 +107,6 @@ export const appData = [
     allotedSeconds: 5400,
     dataSet: null,
     answer: <SolutionNine />,
-    completedOn: null,
+    completedOn: "",
   },
 ];

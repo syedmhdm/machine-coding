@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { appData } from "./appdata/AppData";
 import Timer from "./components/Timer";
 import uparrow from "./icons/uparrow.svg";
@@ -11,6 +11,9 @@ import Output from "./components/Output";
 function App() {
   const [selected, setSelected] = useState(0);
   const [isCodeVisible, setIsCodeVisible] = useState(false);
+  const [codes, setCodes] = useState<
+    { id: number; code: string; completedOn: string }[]
+  >([]);
 
   const questionPoints = appData.map((question) =>
     question.question.split(" . ")
@@ -26,6 +29,29 @@ function App() {
   function handleDownArrowClick() {
     setIsCodeVisible(false);
   }
+
+  useEffect(
+    function () {
+      if (codes[selected]) return;
+
+      async function getCode() {
+        const resp = await fetch(
+          `https://api.github.com/repos/syedmhdm/machine-coding/contents/src/appdata/${appData[selected].id}/Solution.tsx`
+        );
+        const data = await resp.json();
+        setCodes((prev) => {
+          prev[selected] = {
+            id: appData[selected].id,
+            code: atob(data.content),
+            completedOn: appData[selected].completedOn,
+          };
+          return prev;
+        });
+      }
+      getCode();
+    },
+    [codes, selected]
+  );
 
   return (
     <div className='flex h-screen bg-slate-600'>
@@ -61,10 +87,7 @@ function App() {
                 <img src={downarrow} />
               </div>
             </div>
-            <FetchCode
-              id={appData[selected].id}
-              completedOn={appData[selected].completedOn}
-            />
+            <FetchCode {...codes[selected]} />
           </>
         )}
         {/* {new Date().toUTCString()} */}
