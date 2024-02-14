@@ -6,16 +6,22 @@ export default function FetchCode({ setIsCodeVisible, completedOn, id }) {
   }
 
   return (
-    <div className=''>
+    <div>
       <div className='absolute inset-x-0 flex justify-center'>
         <div className='cursor-pointer' onClick={handleDownArrowClick}>
           <img src={downarrow} />
         </div>
       </div>
-      <div>Folder: {id}</div>
       {completedOn !== null ? (
-        <div className='absolute text-xs right-1 top-1 text-slate-400'>
-          Completed on: {completedOn}
+        <div className='absolute flex flex-col gap-1 text-xs right-1 top-1 text-slate-400'>
+          <p>Completed On: {completedOn}</p>
+          <a
+            href={`https://github.com/syedmhdm/machine-coding/blob/main/src/appdata/${id}/Solution.tsx`}
+            target='_blank'
+            className='self-end text-xs text-slate-400 hover:underline '
+          >
+            file link
+          </a>
         </div>
       ) : null}
     </div>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { appData } from "./appdata/AppData";
 import Timer from "./Timer";
 import uparrow from "./uparrow.svg";
@@ -7,6 +7,7 @@ import FetchCode from "./FetchCode";
 function App() {
   const [selected, setSelected] = useState(0);
   const [isCodeVisible, setIsCodeVisible] = useState(false);
+  const [copied, setCopied] = useState(false);
 
   const questionPoints = appData.map((question) =>
     question.question.split(" . ")
@@ -19,6 +20,24 @@ function App() {
     setSelected(index);
     setIsCodeVisible(false);
   }
+
+  function handleCopyToClipboard() {
+    navigator.clipboard.writeText(JSON.stringify(appData[selected].dataSet));
+    setCopied(true);
+  }
+
+  useEffect(
+    function () {
+      if (!copied) return;
+      const timeOut = setTimeout(function () {
+        setCopied(false);
+      }, 2000);
+      return () => {
+        return clearTimeout(timeOut);
+      };
+    },
+    [copied]
+  );
 
   return (
     <div className='flex h-screen bg-slate-600'>
@@ -58,8 +77,14 @@ function App() {
             {appData[selected].dataSet !== null ? (
               <div className='flex gap-1'>
                 <div className='whitespace-nowrap'>Data Set:</div>
-                <div className='p-3 text-xs rounded-lg border-[1px] bg-slate-950 border-slate-400 w-[50%]'>
+                <div className='relative p-3 text-xs rounded-lg border-[1px] bg-slate-950 border-slate-400 w-[50%]'>
                   {JSON.stringify(appData[selected].dataSet)}
+                  <button
+                    className='absolute top-0 right-1'
+                    onClick={handleCopyToClipboard}
+                  >
+                    {copied ? "copied" : "copy"}
+                  </button>
                 </div>
               </div>
             ) : null}
