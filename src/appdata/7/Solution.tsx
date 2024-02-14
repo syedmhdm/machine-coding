@@ -7,7 +7,7 @@ const countries = [
   { name: "Bangladesh", code: "Ban", cities: ["dhaka", "khulna", "Sylhet"] },
 ];
 
-export default function Seven() {
+export default function Solution() {
   const [country, setCountry] = useState("");
   const [city, setCity] = useState("");
 

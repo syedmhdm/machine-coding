@@ -5,9 +5,15 @@
 // 9000 (2.5 hour)
 // max seconds = 10800 (3 hours)
 
-import One from "./1/One";
-import Seven from "./7/Seven";
-import Two from "./2/Two";
+import SolutionOne from "./1/Solution";
+import SolutionTwo from "./2/Solution";
+import SolutionThree from "./3/Solution";
+import SolutionFour from "./4/Solution";
+import SolutionFive from "./5/Solution";
+import SolutionSix from "./6/Solution";
+import SolutionSeven from "./7/Solution";
+import SolutionEight from "./8/Solution";
+import SolutionNine from "./9/Solution";
 
 export const appData = [
   {
@@ -16,7 +22,7 @@ export const appData = [
       "Create two input fields (minutes and second), seconds will convert to minutes if it exceeds 60 . Have a start button, pause/play button, reset button and display the timer . If 5 minutes and 34 seconds is typed, then timer should look like 05:34",
     dataSet: null,
     allotedSeconds: 3600,
-    answer: <One />,
+    answer: <SolutionOne />,
     completedOn: null,
   },
   {
@@ -25,7 +31,7 @@ export const appData = [
       "Create a custom react hook to fetch users from an API (https://randomuser.me/api) and display their picture and name on the page one . It must return the list of users, the current user, a function to fetch the next user and a function to move back to the previous user . Test the custom react hook in the index.tsx",
     dataSet: null,
     allotedSeconds: 3600,
-    answer: <Two />,
+    answer: <SolutionTwo />,
     completedOn: null,
   },
   {
@@ -34,7 +40,7 @@ export const appData = [
       "Write a function that get the data from https://jsonplaceholder.typicode.com/users . List the names alone . Add an input box to search and filter the list based on the typed text values",
     dataSet: null,
     allotedSeconds: 1800,
-    answer: null,
+    answer: <SolutionThree />,
     completedOn: null,
   },
   {
@@ -48,7 +54,7 @@ export const appData = [
       { id: 3, ques: "quetion 3", options: ["q3 opt1", "q3 opt2", "q3 opt3"] },
       { id: 4, ques: "quetion 4", options: ["q4 opt1", "q4 opt2", "q4 opt3"] },
     ],
-    answer: null,
+    answer: <SolutionFour />,
     completedOn: null,
   },
   {
@@ -57,7 +63,7 @@ export const appData = [
       "Build a comment section with infinite nesting and if a comment is deleted then all its child comments should also be deleted",
     allotedSeconds: 3600,
     dataSet: null,
-    answer: null,
+    answer: <SolutionFive />,
     completedOn: null,
   },
   {
@@ -66,8 +72,7 @@ export const appData = [
       "Build a todo app like jira (drag and drop) . It has three sections, todo, inprogress, completed",
     allotedSeconds: 7200,
     dataSet: null,
-
-    answer: null,
+    answer: <SolutionSix />,
     completedOn: null,
   },
   {
@@ -84,7 +89,7 @@ export const appData = [
         cities: ["dhaka", "khulna", "Sylhet"],
       },
     ],
-    answer: <Seven />,
+    answer: <SolutionSeven />,
     completedOn: "Tue, 13 Feb 2024",
   },
   {
@@ -93,8 +98,7 @@ export const appData = [
       "Build and email web app, it should have inbox, favorites, deleted and read/unread",
     allotedSeconds: 9000,
     dataSet: null,
-
-    answer: null,
+    answer: <SolutionEight />,
     completedOn: null,
   },
   {
@@ -102,8 +106,7 @@ export const appData = [
     question: "Build X and O game with a bot",
     allotedSeconds: 5400,
     dataSet: null,
-
-    answer: null,
+    answer: <SolutionNine />,
     completedOn: null,
   },
 ];
