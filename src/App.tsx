@@ -7,6 +7,7 @@ import FetchCode from "./components/FetchCode";
 import QuestionNumberButtons from "./components/QuestionNumberButtons";
 import Question from "./components/Question";
 import Output from "./components/Output";
+import { AnimatePresence, motion, useAnimationControls } from "framer-motion";
 
 function App() {
   const [selected, setSelected] = useState<number>(0);
@@ -23,8 +24,10 @@ function App() {
     setIsCodeVisible(true);
   }
   function handleQuestionSelection(index: number) {
+    controls.start("hidden");
     setSelected(index);
     setIsCodeVisible(false);
+    controls.start("visible");
   }
   function handleDownArrowClick() {
     setIsCodeVisible(false);
@@ -52,6 +55,22 @@ function App() {
     },
     [codes, selected]
   );
+  const wrapperVariants = {
+    hidden: {
+      opacity: 0,
+      x: "100vw",
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { type: "spring", delay: 0.1 },
+    },
+    exit: {
+      x: "-100vh",
+      transition: { ease: "easeInOut" },
+    },
+  };
+  const controls = useAnimationControls();
 
   return (
     <div className='flex h-screen bg-slate-600'>
@@ -60,38 +79,68 @@ function App() {
         handleQuestionSelection={handleQuestionSelection}
         selected={selected}
       />
+      {/* <AnimatePresence mode='wait' initial={false}> */}
       <div className='relative bg-slate-900 grow'>
-        {!isCodeVisible ? (
-          <div className='flex flex-col w-11/12 pt-10 m-auto'>
-            <Question
-              questionPoints={questionPoints[selected]}
-              dataSet={appData[selected].dataSet}
-            />
-            <Output answer={appData[selected].answer} />
-            <Timer
-              id={appData[selected].id}
-              allotedSeconds={appData[selected].allotedSeconds}
-            />
-            <div className='absolute inset-x-0 bottom-0 flex justify-center'>
-              <img
-                className='cursor-pointer'
-                onClick={handleUpArrowClick}
-                src={uparrow}
+        <AnimatePresence mode='wait' initial={false}>
+          {!isCodeVisible ? (
+            <motion.div
+              key='0'
+              initial='hidden'
+              variants={wrapperVariants}
+              animate={controls}
+              exit={"exit"}
+              // initial={{ opacity: 1, y: -500 }}
+              // animate={{ opacity: 1, y: 0 }}
+              // exit={{ opacity: 1, y: -500 }}
+              // transition={{ duration: 0.4 }}
+              className='flex flex-col w-11/12 pt-10 m-auto'
+            >
+              <Question
+                questionPoints={questionPoints[selected]}
+                dataSet={appData[selected].dataSet}
               />
-            </div>
-          </div>
-        ) : (
-          <>
-            <div className='absolute inset-x-0 z-10 flex justify-center'>
-              <div className='cursor-pointer' onClick={handleDownArrowClick}>
-                <img src={downarrow} />
+              <Output answer={appData[selected].answer} />
+            </motion.div>
+          ) : (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className='inset-x-0 z-10 flex justify-center '>
+                <div className='cursor-pointer' onClick={handleDownArrowClick}>
+                  <img src={downarrow} />
+                </div>
               </div>
-            </div>
-            <FetchCode {...codes[selected]} />
-          </>
-        )}
-        {/* {new Date().toUTCString()} */}
+              <FetchCode {...codes[selected]} />
+            </motion.div>
+          )}
+          {!isCodeVisible && (
+            <motion.div
+              key='1'
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              <Timer
+                id={appData[selected].id}
+                allotedSeconds={appData[selected].allotedSeconds}
+              />
+              <div className='absolute inset-x-0 bottom-0 flex justify-center'>
+                <img
+                  className='cursor-pointer'
+                  onClick={handleUpArrowClick}
+                  src={uparrow}
+                />
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
+      {/* </AnimatePresence> */}
+      {/* {new Date().toUTCString()} */}
     </div>
   );
 }
