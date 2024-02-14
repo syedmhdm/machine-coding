@@ -1,4 +1,6 @@
-export default function Output({ answer }) {
+import { ReactNode } from "react";
+
+export default function Output({ answer }: { answer: ReactNode }) {
   return (
     <>
       <div className='pb-2 pt-7'>Output:</div>

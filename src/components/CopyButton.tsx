@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
-export default function CopyButton({ data }) {
-  const [copied, setCopied] = useState(false);
+export default function CopyButton({ data }: { data: string }) {
+  const [copied, setCopied] = useState<boolean>(false);
 
   function handleCopyToClipboard() {
     navigator.clipboard.writeText(data.toString());

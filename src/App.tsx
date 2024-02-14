@@ -9,8 +9,8 @@ import Question from "./components/Question";
 import Output from "./components/Output";
 
 function App() {
-  const [selected, setSelected] = useState(0);
-  const [isCodeVisible, setIsCodeVisible] = useState(false);
+  const [selected, setSelected] = useState<number>(0);
+  const [isCodeVisible, setIsCodeVisible] = useState<boolean>(false);
   const [codes, setCodes] = useState<
     { id: number; code: string; completedOn: string }[]
   >([]);

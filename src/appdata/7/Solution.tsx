@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { SetStateAction, useState } from "react";
 
 // data set
 const countries = [
@@ -11,10 +11,12 @@ export default function Solution() {
   const [country, setCountry] = useState("");
   const [city, setCity] = useState("");
 
-  function handleChangeCountry(e) {
+  function handleChangeCountry(e: {
+    target: { value: SetStateAction<string> };
+  }) {
     setCountry(e.target.value);
   }
-  function handleChangeCity(e) {
+  function handleChangeCity(e: { target: { value: SetStateAction<string> } }) {
     setCity(e.target.value);
   }
 

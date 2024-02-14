@@ -3,7 +3,13 @@ import play from "../icons/play.svg";
 import reset from "../icons/reset.svg";
 import pause from "../icons/pause.svg";
 
-export default function Timer({ id, allotedSeconds }) {
+export default function Timer({
+  id,
+  allotedSeconds,
+}: {
+  id: number;
+  allotedSeconds: number;
+}) {
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
   const [isRunning, setIsRunning] = useState(false);

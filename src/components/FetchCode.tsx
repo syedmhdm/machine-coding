@@ -9,8 +9,6 @@ export default function FetchCode({
   code: string;
   completedOn: string;
 }) {
-  console.log("id", id, completedOn);
-
   return (
     <div>
       <code className='relative block p-5 pr-0 mb-0  m-10 rounded-lg bg-slate-950 border-slate-400 border-[1px] w-[80%]'>

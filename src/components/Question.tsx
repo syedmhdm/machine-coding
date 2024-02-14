@@ -1,6 +1,12 @@
 import CopyButton from "./CopyButton";
 
-export default function Question({ questionPoints, dataSet }) {
+export default function Question({
+  questionPoints,
+  dataSet,
+}: {
+  questionPoints: string[];
+  dataSet: object | null;
+}) {
   return (
     <>
       <div>
