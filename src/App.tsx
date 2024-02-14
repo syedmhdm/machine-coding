@@ -2,6 +2,7 @@ import { useState } from "react";
 import { appData } from "./appdata/AppData";
 import Timer from "./components/Timer";
 import uparrow from "./icons/uparrow.svg";
+import downarrow from "./icons/downarrow.svg";
 import FetchCode from "./components/FetchCode";
 import QuestionNumberButtons from "./components/QuestionNumberButtons";
 import Question from "./components/Question";
@@ -20,6 +21,9 @@ function App() {
   }
   function handleQuestionSelection(index: number) {
     setSelected(index);
+    setIsCodeVisible(false);
+  }
+  function handleDownArrowClick() {
     setIsCodeVisible(false);
   }
 
@@ -51,11 +55,17 @@ function App() {
             </div>
           </div>
         ) : (
-          <FetchCode
-            id={appData[selected].id}
-            completedOn={appData[selected].completedOn}
-            setIsCodeVisible={setIsCodeVisible}
-          />
+          <>
+            <div className='absolute inset-x-0 z-10 flex justify-center'>
+              <div className='cursor-pointer' onClick={handleDownArrowClick}>
+                <img src={downarrow} />
+              </div>
+            </div>
+            <FetchCode
+              id={appData[selected].id}
+              completedOn={appData[selected].completedOn}
+            />
+          </>
         )}
         {/* {new Date().toUTCString()} */}
       </div>

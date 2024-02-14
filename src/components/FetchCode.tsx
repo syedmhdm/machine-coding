@@ -1,55 +1,42 @@
-import downarrow from "../icons/downarrow.svg";
+import { useEffect, useState } from "react";
+import CopyButton from "./CopyButton";
 
-export default function FetchCode({ setIsCodeVisible, completedOn, id }) {
-  function handleDownArrowClick() {
-    setIsCodeVisible(false);
-  }
+export default function FetchCode({ completedOn, id }) {
+  const [code, setCode] = useState("");
 
+  useEffect(
+    function () {
+      async function getCode() {
+        const resp = await fetch(
+          `https://api.github.com/repos/syedmhdm/machine-coding/contents/src/appdata/${id}/Solution.tsx`
+        );
+        const data = await resp.json();
+        setCode(atob(data.content));
+      }
+      getCode();
+    },
+    [id]
+  );
   return (
     <div>
-      <div className='absolute inset-x-0 flex justify-center'>
-        <div className='cursor-pointer' onClick={handleDownArrowClick}>
-          <img src={downarrow} />
-        </div>
-      </div>
+      <code className='relative block p-5 m-10 rounded-lg bg-slate-950 border-slate-400 border-[1px] w-[80%]'>
+        <pre className='overflow-y-scroll text-sm whitespace-break-spaces max-h-[500px]'>
+          {code}
+        </pre>
+        <CopyButton data={code} />
+      </code>
       {completedOn !== null ? (
-        <div className='absolute flex flex-col gap-1 text-xs right-1 top-1 text-slate-400'>
-          <p>Completed On: {completedOn}</p>
+        <div className='absolute inset-x-0 flex justify-between gap-1 text-xs right-1 top-1 text-slate-400'>
           <a
             href={`https://github.com/syedmhdm/machine-coding/blob/main/src/appdata/${id}/Solution.tsx`}
             target='_blank'
-            className='self-end text-xs text-slate-400 hover:underline '
+            className='z-20 self-end text-xs text-slate-400 hover:underline'
           >
             file link
           </a>
+          <p>Completed On: {completedOn}</p>
         </div>
       ) : null}
     </div>
   );
 }
-
-// import { useEffect, useState } from "react";
-
-// export default function One() {
-//   const [code, setCode] = useState("");
-
-//   useEffect(function () {
-//     async function getCode() {
-//       const resp = await fetch(
-//         "https://api.github.com/repos/syedmhdm/machine-coding/contents/src/App.tsx"
-//       );
-//       const data = await resp.json();
-//       setCode(atob(data.content));
-//     }
-//     // getCode();
-//   }, []);
-
-//   return (
-//     <code>
-//       <pre className='overflow-y-scroll text-sm whitespace-break-spaces max-h-96'>
-//         {code}
-//       </pre>
-//       "one"
-//     </code>
-//   );
-// }
