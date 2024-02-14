@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import play from "./play.svg";
-import reset from "./reset.svg";
-import pause from "./pause.svg";
+import play from "../icons/play.svg";
+import reset from "../icons/reset.svg";
+import pause from "../icons/pause.svg";
 
 export default function Timer({ id, allotedSeconds }) {
   const [minutes, setMinutes] = useState(0);

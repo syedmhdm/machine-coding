@@ -1,4 +1,4 @@
-import downarrow from "./downarrow.svg";
+import downarrow from "../icons/downarrow.svg";
 
 export default function FetchCode({ setIsCodeVisible, completedOn, id }) {
   function handleDownArrowClick() {

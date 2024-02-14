@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { appData } from "./appdata/AppData";
-import Timer from "./Timer";
-import uparrow from "./uparrow.svg";
-import FetchCode from "./FetchCode";
+import Timer from "./components/Timer";
+import uparrow from "./icons/uparrow.svg";
+import FetchCode from "./components/FetchCode";
 
 function App() {
   const [selected, setSelected] = useState(0);
