@@ -51,7 +51,7 @@ export default function Timer({
     String(seconds).length === 1 ? `0${String(seconds)}` : String(seconds);
 
   return (
-    <div className='absolute flex gap-10 pl-10 bottom-10'>
+    <div className='absolute flex gap-10 pl-10 bottom-10 bg-slate-900'>
       <p className='text-2xl w-28'>
         {displayMinutes}:{displaySeconds}
       </p>

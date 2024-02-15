@@ -26,7 +26,18 @@
 
 @layer components {
   body {
-    @apply text-slate-100 tracking-wide text-lg
+    @apply text-slate-100 tracking-wide text-lg;
+  }
+}
+@layer utilities {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
   }
 }
 
