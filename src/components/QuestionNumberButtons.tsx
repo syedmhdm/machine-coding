@@ -8,7 +8,7 @@ export default function QuestionNumberButtons({
   handleQuestionSelection: (i: number) => void;
 }) {
   return (
-    <div className='flex flex-col gap-5 p-5 bg-slate-800'>
+    <div className='z-10 flex flex-col gap-5 p-5 bg-slate-800'>
       {appData.map((el, i) => (
         <div
           key={el.id}
