@@ -112,6 +112,27 @@ function App() {
               </AnimatePresence>
             </motion.div>
           )}
+          {isCodeVisible && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className='inset-x-0 z-10 flex justify-center '>
+                <div className='cursor-pointer' onClick={handleDownArrowClick}>
+                  <img src={downarrow} />
+                </div>
+              </div>
+              <FetchCode
+                id={appData[selected].id}
+                {...codes[selected]}
+                completedOn={appData[selected].completedOn}
+              />
+            </motion.div>
+          )}
+        </AnimatePresence>
+        <AnimatePresence mode='wait' initial={false}>
           {!isCodeVisible && (
             <motion.div
               key='1'
@@ -144,58 +165,6 @@ function App() {
               </div>
             </motion.div>
           )}
-
-          {isCodeVisible && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
-            >
-              <div className='inset-x-0 z-10 flex justify-center '>
-                <div className='cursor-pointer' onClick={handleDownArrowClick}>
-                  <img src={downarrow} />
-                </div>
-              </div>
-              <FetchCode
-                id={appData[selected].id}
-                {...codes[selected]}
-                completedOn={appData[selected].completedOn}
-              />
-            </motion.div>
-          )}
-          {/* {!isCodeVisible && (
-            <motion.div
-              key='1'
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
-            >
-              <AnimatePresence mode='popLayout' initial={false}>
-                {quesChange === selected && (
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <Timer
-                      id={appData[selected].id}
-                      allotedSeconds={appData[selected].allotedSeconds}
-                    />
-                  </motion.div>
-                )}
-              </AnimatePresence>
-              <div className='absolute inset-x-0 bottom-0 flex justify-center'>
-                <img
-                  className='cursor-pointer'
-                  onClick={handleUpArrowClick}
-                  src={uparrow}
-                />
-              </div>
-            </motion.div>
-          )} */}
         </AnimatePresence>
       </div>
     </div>
