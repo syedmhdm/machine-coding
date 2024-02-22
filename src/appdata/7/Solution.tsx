@@ -25,7 +25,7 @@ export default function Solution() {
   const cities = selectedCountry.length === 1 ? selectedCountry[0].cities : [];
 
   return (
-    <div>
+    <div className='flex gap-1'>
       <select value={country} onChange={handleChangeCountry}>
         {countries.map((el, i) => (
           <option key={i} value={el.name}>

@@ -100,7 +100,9 @@ export default function Solution() {
         </button>
       </div>
       <br />
-      <div>{displayTimer}</div>
+      <div className='inline-block border-2 bg-slate-300 border-slate-600'>
+        {displayTimer}
+      </div>
     </>
   );
 }
