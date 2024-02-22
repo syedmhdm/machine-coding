@@ -23,7 +23,7 @@ export const appData = [
     dataSet: null,
     allotedSeconds: 3600,
     answer: <SolutionOne />,
-    completedOn: "Wed, 14 Feb 2024",
+    completedOn: "Thu Feb 22 2024",
   },
   {
     id: 2,
@@ -32,7 +32,7 @@ export const appData = [
     dataSet: null,
     allotedSeconds: 3600,
     answer: <SolutionTwo />,
-    completedOn: "Wed, 14 Feb 2024",
+    completedOn: "",
   },
   {
     id: 3,
@@ -41,7 +41,7 @@ export const appData = [
     dataSet: null,
     allotedSeconds: 1800,
     answer: <SolutionThree />,
-    completedOn: "Wed, 14 Feb 2024",
+    completedOn: "",
   },
   {
     id: 4,
@@ -55,7 +55,7 @@ export const appData = [
       { id: 4, ques: "quetion 4", options: ["q4 opt1", "q4 opt2", "q4 opt3"] },
     ],
     answer: <SolutionFour />,
-    completedOn: "Wed, 14 Feb 2024",
+    completedOn: "",
   },
   {
     id: 5,
@@ -64,7 +64,7 @@ export const appData = [
     allotedSeconds: 3600,
     dataSet: null,
     answer: <SolutionFive />,
-    completedOn: "Wed, 14 Feb 2024",
+    completedOn: "",
   },
   {
     id: 6,
@@ -73,7 +73,7 @@ export const appData = [
     allotedSeconds: 7200,
     dataSet: null,
     answer: <SolutionSix />,
-    completedOn: "Wed, 14 Feb 2024",
+    completedOn: "",
   },
   {
     id: 7,
@@ -90,7 +90,7 @@ export const appData = [
       },
     ],
     answer: <SolutionSeven />,
-    completedOn: "Tue, 13 Feb 2024",
+    completedOn: "Tue Feb 13 2024",
   },
   {
     id: 8,
@@ -99,7 +99,7 @@ export const appData = [
     allotedSeconds: 9000,
     dataSet: null,
     answer: <SolutionEight />,
-    completedOn: "Wed, 14 Feb 2024",
+    completedOn: "",
   },
   {
     id: 9,
@@ -107,6 +107,6 @@ export const appData = [
     allotedSeconds: 5400,
     dataSet: null,
     answer: <SolutionNine />,
-    completedOn: "Wed, 14 Feb 2024",
+    completedOn: "",
   },
 ];
