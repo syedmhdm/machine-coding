@@ -60,8 +60,14 @@ export default function Solution() {
         <p>{currentUser?.name}</p>
       </div>
 
-      <button onClick={prevUser}>prev</button>
-      <button onClick={nextUser}>next</button>
+      <div className='flex gap-1'>
+        <button className='bg-slate-300' onClick={prevUser}>
+          prev
+        </button>
+        <button className='bg-slate-300' onClick={nextUser}>
+          next
+        </button>
+      </div>
     </div>
   );
 }
