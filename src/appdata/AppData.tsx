@@ -32,7 +32,7 @@ export const appData = [
     dataSet: null,
     allotedSeconds: 3600,
     answer: <SolutionTwo />,
-    completedOn: "",
+    completedOn: "Sat Feb 24 2024",
   },
   {
     id: 3,
@@ -41,7 +41,7 @@ export const appData = [
     dataSet: null,
     allotedSeconds: 1800,
     answer: <SolutionThree />,
-    completedOn: "",
+    completedOn: "Sat Feb 24 2024",
   },
   {
     id: 4,
