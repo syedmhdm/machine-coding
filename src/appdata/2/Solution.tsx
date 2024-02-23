@@ -53,7 +53,7 @@ export default function Solution() {
   return (
     <div>
       {users.map((user) => (
-        <div>{user?.name}</div>
+        <div key={user.id}>{user?.name}</div>
       ))}
       <div>
         <img src={currentUser?.picture} alt={currentUser?.name} />
