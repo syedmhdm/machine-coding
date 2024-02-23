@@ -46,16 +46,36 @@ export const appData = [
   {
     id: 4,
     question:
-      "Develop a multiple choice questions app . One question at a time . At the end, score should be visible",
+      "Develop a multiple choice questions app, each question has weightage . One question at a time . At the end, score should be visible",
     allotedSeconds: 1800,
     dataSet: [
-      { id: 1, ques: "quetion 1", options: ["q1 opt1", "q1 opt2", "q1 opt3"] },
-      { id: 2, ques: "quetion 2", options: ["q2 opt1", "q2 opt2", "q2 opt3"] },
-      { id: 3, ques: "quetion 3", options: ["q3 opt1", "q3 opt2", "q3 opt3"] },
-      { id: 4, ques: "quetion 4", options: ["q4 opt1", "q4 opt2", "q4 opt3"] },
+      {
+        id: 1,
+        score: 13,
+        ques: "quetion 1",
+        options: ["q1 opt1", "q1 opt2", "q1 opt3"],
+      },
+      {
+        id: 2,
+        score: 23,
+        ques: "quetion 2",
+        options: ["q2 opt1", "q2 opt2", "q2 opt3"],
+      },
+      {
+        id: 3,
+        score: 31,
+        ques: "quetion 3",
+        options: ["q3 opt1", "q3 opt2", "q3 opt3"],
+      },
+      {
+        id: 4,
+        score: 32,
+        ques: "quetion 4",
+        options: ["q4 opt1", "q4 opt2", "q4 opt3"],
+      },
     ],
     answer: <SolutionFour />,
-    completedOn: "",
+    completedOn: "Sat Feb 24 2024",
   },
   {
     id: 5,

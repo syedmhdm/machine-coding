@@ -161,6 +161,7 @@ function App() {
                   className='cursor-pointer'
                   onClick={handleUpArrowClick}
                   src={uparrow}
+                  title='Solution'
                 />
               </div>
             </motion.div>
