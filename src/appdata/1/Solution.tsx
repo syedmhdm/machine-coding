@@ -28,11 +28,11 @@ export default function Solution() {
     [isRunning, mins, secs]
   );
 
-  function handleMinutesChange(e) {
-    setMinutes(e.target.value);
+  function handleMinutesChange(e: React.FormEvent<HTMLInputElement>) {
+    setMinutes(Number(e.currentTarget.value));
   }
-  function handleSecondsChange(e) {
-    setSeconds(e.target.value);
+  function handleSecondsChange(e: React.FormEvent<HTMLInputElement>) {
+    setSeconds(Number(e.currentTarget.value));
   }
   function handleStartClick() {
     if (mins !== 0 && secs !== 0) return;
