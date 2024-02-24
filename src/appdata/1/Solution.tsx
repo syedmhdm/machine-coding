@@ -39,7 +39,7 @@ export default function Solution() {
 
     if (seconds > 60) {
       setSecs(seconds % 60);
-      setMins((prev) => prev + Math.floor(seconds / 60));
+      setMins(minutes + Math.floor(seconds / 60));
     } else {
       setSecs(seconds);
       setMins(minutes);
