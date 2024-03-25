@@ -102,6 +102,12 @@ function App() {
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.3 }}
                   >
+                    <button
+                      className='inline-flex items-center px-4 py-2 font-bold rounded-lg text-slate-800 bg-slate-300 hover:bg-slate-400'
+                      onClick={handleUpArrowClick}
+                    >
+                      View Answer
+                    </button>
                     <Question
                       questionPoints={questionPoints[selected]}
                       dataSet={appData[selected].dataSet}

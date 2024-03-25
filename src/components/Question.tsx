@@ -10,6 +10,11 @@ export default function Question({
   return (
     <>
       <div>
+        <div className='py-3 '>
+          <p className='flex gap-2'>
+            <span>Question:</span>
+          </p>
+        </div>{" "}
         {questionPoints.map((point, i) => (
           <div className='pb-3' key={i}>
             <p className='flex gap-2'>
